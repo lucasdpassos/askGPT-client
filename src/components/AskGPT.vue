@@ -5,20 +5,14 @@ import Lateral from './Lateral.vue'
 import { defineStore } from "pinia";
 import { usePromptStore } from '../stores/PromptStores.js'
 import { storeToRefs } from "pinia";
-
-
-
-
 export default {
   setup() {
     const store = usePromptStore()
     const test = "abcTEst"
     const promptTitle = store.promptList
-
     const addPrompt = (addedPrompt) => {
       store.storePrompt(addedPrompt)
     };
-
     return { promptTitle, test, addPrompt }
   },
   data() {
@@ -38,14 +32,11 @@ export default {
       this.sendedPrompt = this.userPrompt
       this.userPrompt = ""
       this.myResponse = "aa"
-
-
       if(this.sendedPrompt != null) {
         this.storedPrompt3 = this.storedPrompt2
         this.storedPrompt2 = this.storedPrompt1
         this.storedPrompt1 = this.sendedPrompt
       }
-
       await axios.post('http://localhost:3000/prompt', {
         prompt: this.sendedPrompt
       })
@@ -103,4 +94,3 @@ export default {
   </div>
 </div>
 </template>
-

@@ -9,7 +9,7 @@ export const usePromptStore = defineStore('prompt', {
       }),
       actions: {
         storePrompt(savedPrompt) {
-          this.promptList.push({ savedPrompt, avatar: "", title: savedPrompt })
+          this.promptList.push({avatar: "", title: savedPrompt })
           console.log(this.promptList)
         },
       }
